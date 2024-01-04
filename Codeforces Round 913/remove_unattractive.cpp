@@ -37,6 +37,7 @@ using namespace __gnu_pbds;
 intt dx[] = {0, 0, 1, -1};
 intt dy[] = {1, -1, 0, 0};
 intt n, m, a, b;
+string s;
 
 bool possible(int x, int y)
 {
@@ -66,6 +67,22 @@ using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 
 void solve()
 {
+    string s;
+    int n;
+    cin >> n >> s;
+    int res = n % 2;
+    int cnt[26] = {0};
+    for (int i = 0; i < n; i++)
+        cnt[s[i] - 'a']++;
+    for (int i = 0; i < 26; i++)
+    {
+        if (cnt[i] > n / 2)
+        {
+            res = cnt[i] - (n - cnt[i]);
+            break;
+        }
+    }
+    cout << res << '\n';
 }
 
 int32_t main()

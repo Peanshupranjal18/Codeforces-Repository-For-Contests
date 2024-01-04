@@ -37,6 +37,8 @@ using namespace __gnu_pbds;
 intt dx[] = {0, 0, 1, -1};
 intt dy[] = {1, -1, 0, 0};
 intt n, m, a, b;
+string s = "";
+char ch;
 
 bool possible(int x, int y)
 {
@@ -66,6 +68,8 @@ using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 
 void solve()
 {
+    cin >> s;
+    a = s.length();
 }
 
 int32_t main()

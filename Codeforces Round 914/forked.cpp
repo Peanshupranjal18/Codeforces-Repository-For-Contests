@@ -34,14 +34,14 @@ using namespace std;
 using namespace __gnu_pbds;
 
 // Right Left Up Down
-intt dx[] = {0, 0, 1, -1};
-intt dy[] = {1, -1, 0, 0};
-intt n, m, a, b;
+// intt dx[] = {0, 0, 1, -1};
+// intt dy[] = {1, -1, 0, 0};
+// intt n, m, a, b;
 
-bool possible(int x, int y)
-{
-    return (x < n && x >= 0 && y < m && y >= 0);
-}
+// bool possible(int x, int y)
+// {
+//     return (x < n && x >= 0 && y < m && y >= 0);
+// }
 
 vi v, v1, v2, v3, v4;
 vi dp(200001);
@@ -66,6 +66,24 @@ using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 
 void solve()
 {
+    intt a, b;
+    intt xk, yk;
+    intt xq, yq;
+    cin >> a >> b >> xk >> yk >> xq >> yq;
+    int dx[4] = {-1, 1, -1, 1}, dy[4] = {-1, -1, 1, 1};
+    set<pair<intt, intt>> st1, st2;
+    f(j, 4)
+    {
+        st1.insert({xk + dx[j] * a, yk + dy[j] * b});
+        st2.insert({xq + dx[j] * a, yq + dy[j] * b});
+        st1.insert({xk + dx[j] * b, yk + dy[j] * a});
+        st2.insert({xq + dx[j] * b, yq + dy[j] * a});
+    }
+    intt ans = 0;
+    for (auto x : st1)
+        if (st2.find(x) != st2.end())
+            ans++;
+    cout << ans << "\n";
 }
 
 int32_t main()

@@ -36,7 +36,7 @@ using namespace __gnu_pbds;
 // Right Left Up Down
 intt dx[] = {0, 0, 1, -1};
 intt dy[] = {1, -1, 0, 0};
-intt n, m, a, b;
+intt n, m, a, b, k;
 
 bool possible(int x, int y)
 {
@@ -66,6 +66,26 @@ using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 
 void solve()
 {
+    cin >> n >> k;
+    v.rs(n);
+    b = 1;
+    f(i, n)
+    {
+        cin >> a;
+        b *= a;
+    }
+    if (2023 % b != 0)
+        cout << "NO"
+             << "\n";
+    else
+    {
+        cout << "YES"
+             << "\n";
+        cout << 2023 / b << " ";
+        f(i, k - 1) cout << 1 << " ";
+        cout << "\n";
+    }
+    rt;
 }
 
 int32_t main()
